@@ -1,0 +1,103 @@
+/* Temel stiller */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header stilleri */
+header {
+    background-color: #c82f1e;
+    color: white;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 40px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Kutu stilleri */
+.box {
+    background-color: #c65f2b;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    margin-left: 35px;
+    border-radius: 15px;
+}
+
+.search-bar input {
+    border: none;
+    text-align: center;
+    padding: 10px;
+    width: 350px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar i {
+    color: #c82f1e;
+    padding: 10px;
+    background-color: #e5e5e5;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+
+}
+
+/* Kategoriler */
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.category {
+    background-color: #c82f1e;
+    color: white;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right:100px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Öne Çıkan Resimler */
+.featured-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.image {
+    background-color: #e5e5e5;
+    width: 400px;
+    height: 350px;
+    border-radius: 5px;
+}
