@@ -2,74 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="loginHome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Ana Sayfa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loginHome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Ana Sayfa</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="search-bar">
-                <i class="fa-sharp fa-solid fa-bars"></i>
-                <input type="text" placeholder="Aramak istediğiniz kitabın adını giriniz">
-                <i class="fas fa-search"></i>
-            </div>
-            <ul class="menu">
-                <li><a href="#" class="box">Üyeee Ol</a></li>
-                <li><a href="#" class="box">Giriş Yap</a></li>
-                <li><a href="#" class="box">Yönetici Girişi</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="categories">
-        <a class="category" href="#" id="Roman">Roman</a>
-        <a class="category" href="#" id="Masal">Masal</a>
-        <a class="category" href="#" id="Öykü">Öykü</a>
-        <a class="category" href="#" id="Klasik">Klasik</a>
-        <a class="category" href="#" id="Polisiye">Polisiye</a>
-      </section>
-    <!-- <section class="featured-images">
-        <div class="image"><img src="resimler/book1.png"></div>
-        <div class="image"><img src="resimler/book1.png"></div>
-        <div class="image"><img src="resimler/book1.png"></div>
-        
-    </section> -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="resimler/logo.png" alt="logo" class="logo-img">
+      </div>
+      <div class="search-bar">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+        <input type="text" id="arama-cubugu" placeholder="Aramak istediğiniz kitabın adını giriniz">
+        <i class="fas fa-search" id="arama-simgesi"></i>
+      </div>
+      <ul class="menu">
+        <li><a href="#" class="box">Üyeee Ol</a></li>
+        <li><a href="#" class="box">Yönetici Girişi</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="banner">
+    <div class="slider">
+      <img src="resimler/banner/15.png" alt="Banner 1">
+      <img src="resimler/banner/13.png" alt="Banner 2">
+      <img src="resimler/banner/14.png" alt="Banner 3">
+      <!-- Daha fazla slider resmi ekleyebilirsiniz -->
+    </div>
+  </section>
+  <section class="categories">
+    <a class="category" href="#" id="Roman">Roman</a>
+    <a class="category" href="#" id="Masal">Masal</a>
+    <a class="category" href="#" id="Öykü">Öykü</a>
+    <a class="category" href="#" id="Klasik">Klasik</a>
+    <a class="category" href="#" id="Polisiye">Polisiye</a>
+  </section> 
 
-    <div id="veri-alani"></div>
+  <div id="veri-alani"></div>
 
-  
-        
-<div class="slideshow-container">
+  <script src="veriKutulari.js"></script>
 
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="resimler/1.png" style="width:100%; height:300px;"> <!-- Yükseklik ayarı burada -->
-        <div class="text">Caption Text</div>
-    </div>
-    
-    
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="resimler/2.png" style="width:100%">
-      <div class="text">Caption Two</div>
-    </div>
-    
-    
-    </div>
-    <br>
-    
-    <div style="text-align:center">
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-    </div>
-    
-    <!-- <script src="app.js"></script> -->
-    <!-- <script src="veriler.js"></script> -->
-    <script src="veriKutulari.js"></script>
 </body>
 
 </html>

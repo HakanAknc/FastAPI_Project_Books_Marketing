@@ -1,17 +1,21 @@
-kitap_id,kitap_ad,kitap_kategori,kitap_ücret,kitap_stok
-1,suç ve ceza,roman,100,20
-2,sefiller,roman,120,27
-3,tutunamayanlar,roman,85,23
-4,ateşpare,roman,75,38
-5,safahat,şiir,95,40
-6,Ateş ve Su,roman,90,27
-7,Cin Ali,hikaye,80,36
-8,Siyah Beyaz,hikaye,200,14
-9,Siyah Araba,polisiye,190,14
-10,Ali Baba,öykü,150,32
-11,Sarı kız,öykü,110,25
-12,Dostyevski,klasik,550,18
-13,Peri,masal,180,25
-14,Kaçaklar,öykü,160,17
-15,Masal Dünyası,masal,165,18
-16,Devlet,klasik,160,21
+kitap_id,kitap_ad,kitap_kategori,kitap_ücret,kitap_stok,kitap_resim
+1,Müthiş Psikoloji,psikoloji,80,30,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YKMhFT5Su0xZQJ47c0ZXm0kjo3_dZvhM1Q&usqp=CAU
+2,Mia ve Siyah,roman,90,25,https://www.canyayinlari.com/productimages/118742/original/9789750731785_front_cover.jpg
+3,Devlet Ana,roman,75,30,https://img.kitapyurdu.com/v1/getImage/fn:11223676/wh:true/miw:200/mih:200
+4,Üç İstanbul,roman,60,15,https://img.kitapyurdu.com/v1/getImage/fn:11654278/wh:true/wi:800
+5,Araba Sevdası,roman,80,35,https://img.kitapyurdu.com/v1/getImage/fn:1126816/wh:true/wi:800
+6,Deli Tarla,öykü,65,20,https://img.kitapyurdu.com/v1/getImage/fn:11301315/wh:true/wi:800
+7,Sabah Işıkları,öykü,50,25,https://www.kitapperonu.com/u/kitapperonu/img/c/s/a/sabah-isiklarion-kapak-1686319819.jpg
+8,Sefiller,klasik,120,30,https://img.kitapyurdu.com/v1/getImage/fn:130842/wh:true/wi:800
+9,Suç ve Ceza,klasik,110,35,https://img.kitapyurdu.com/v1/getImage/fn:11318194/wh:true/wi:800
+10,Tutunamayanlar,roman,140,25,https://productimages.hepsiburada.net/s/3/375-375/9600314867762.jpg
+11,Ateşpare,şiir,130,26,https://i.dr.com.tr/cache/600x600-0/originals/0002016573001-1.jpg
+12,Ateş ve Su,roman,160,35,https://img.kitapyurdu.com/v1/getImage/fn:1121795/wh:true/miw:200/mih:200
+13,Devlet,klasik,135,35,https://i.dr.com.tr/cache/600x600-0/originals/0000000639806-1.jpg
+14,Siyah Beyaz,öykü,80,20,https://i.dr.com.tr/cache/500x400-0/originals/0001838096001-1.jpg
+15,Safahat,şiir,60,15,https://cdn1.dokuzsoft.com/u/iz/img/c/0/3/031-safahat-1625728518.png
+16,Yaprak Dökümü,roman,120,25,https://cdn.kitapsec.com/image/urun/2020/05/16/1589618492.jpg
+17,Ezop Masalları,masal,60,20,https://i.dr.com.tr/cache/500x400-0/originals/0000000284540-1.jpg
+18,İstanbul Hatırası,polisiye,90,32,https://productimages.hepsiburada.net/s/7/375-375/8797167812658.jpg
+19,Kırlangıç Çığlığı,polisiye,100,35,https://cdn.kitapsec.com/image/urun/2021/05/08/1620455088.jpg
+20,Uyku Masalları,masal,50,10,https://www.yapikrediyayinlari.com.tr/dosyalar/2017/04/uyku-masallari.jpg

@@ -115,7 +115,6 @@ async def user_surname_get(surname: str):
     return kisiler_soyad
 
 
-
 # 2. Tablo = Kitaplar
 @app.get("/get_books/")      # "Kitaplar" tablosundaki tüm kitapların bir listesini alır.
 async def books_list_get():
@@ -136,14 +135,19 @@ async def books_category_get(books_category: str):
 
 
 @app.post("/post_add_books/")    #  Verilen verileri (kitap_ad, kitap_kategori, kitap_ücret ve kitap_stok) kullanarak yeni bir kitap ekler.
-async def add_books_post(book_name: str, book_category: str, book_fee: int, book_stock: int):
+async def add_books_post(book_name: str, book_category: str, book_fee: int, book_stock: int,book_image:str):
     kitaplar_df = pd.read_csv(csv_file)
     
     # Aynı "kitap_ad"a sahip kitabın zaten var olup olmadığını kontrol ediyorum
     if kitaplar_df[kitaplar_df["kitap_ad"] == book_name].shape[0] > 0:
         return {"error": "Bu kitap zaten kayıtlıdır."}
     
-    veri = pd.DataFrame({"kitap_id": [kitap_id_counter], "kitap_ad": [book_name], "kitap_kategori": [book_category], "kitap_ücret": [book_fee], "kitap_stok": [book_stock]})
+    veri = pd.DataFrame({"kitap_id": [kitap_id_counter],
+                          "kitap_ad": [book_name],
+                            "kitap_kategori": [book_category],
+                              "kitap_ücret": [book_fee],
+                                "kitap_stok": [book_stock],
+                                "kitap_resim":[book_image]})
 
     if kitaplar_df.empty:
         updated_veri_csv = veri
