@@ -38,6 +38,48 @@ function fetchBooksByCategory(category) {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const temizleButton = document.getElementById('Temizle');
+    
+    // Sayfa yüklendiğinde ve "Temizle" butonuna tıkladığınızda API'yi çağıran işlev
+    temizleButton.addEventListener('click', function () {
+        fetch('http://127.0.0.1:8000/get_books/')
+            .then(response => response.json())
+            .then(data => {
+                // Verileri ekranda göstermek için bir konteyner oluşturun
+                const veriAlani = document.getElementById('veri-alani');
+                veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+                // Verileri kutular içinde ekrana ekleyin
+                data.forEach(kitap => {
+                    const kitapAdi = kitap.kitap_ad;
+                    const kitapKategori = kitap.kitap_kategori;
+                    const kitapFiyat = kitap.kitap_ücret;
+                    const kitapResim = kitap.kitap_resim;
+
+                    // Yeni bir kutu oluşturun
+                    const kitapBilgisi = document.createElement('div');
+                    kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                    // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
+                    kitapBilgisi.innerHTML = `
+                        <p>Kitap Adı: ${kitapAdi}</p>
+                        <p>Kategori: ${kitapKategori}</p>
+                        <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
+                        <img src="${kitapResim}" alt="Kitap Resmi">
+                    `;
+
+                    // Kitap bilgisini HTML sayfasına ekleyin
+                    veriAlani.appendChild(kitapBilgisi);
+                });
+            })
+            .catch(error => {
+                console.error('Hata:', error);
+            });
+    });
+});
+
+
 // tüm verileri ekrana yazdrıma
 document.addEventListener('DOMContentLoaded', function () {
     // Sayfa yüklendiğinde veriyi çekme işlemini başlatıyorum.
@@ -127,3 +169,5 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
+
