@@ -1,171 +1,218 @@
-// Her kategoriye tıklanınca ilgili kategorinin kitaplarını getir
-document.getElementById('Roman').addEventListener('click', () => fetchBooksByCategory('roman'));
-document.getElementById('Masal').addEventListener('click', () => fetchBooksByCategory('masal'));
-document.getElementById('Öykü').addEventListener('click', () => fetchBooksByCategory('öykü'));
-document.getElementById('Klasik').addEventListener('click', () => fetchBooksByCategory('klasik'));
-document.getElementById('Polisiye').addEventListener('click', () => fetchBooksByCategory('polisiye'));
+// // Her kategoriye tıklanınca ilgili kategorinin kitaplarını getir
+// document.getElementById('Roman').addEventListener('click', () => fetchBooksByCategory('roman'));
+// document.getElementById('Masal').addEventListener('click', () => fetchBooksByCategory('masal'));
+// document.getElementById('Öykü').addEventListener('click', () => fetchBooksByCategory('öykü'));
+// document.getElementById('Klasik').addEventListener('click', () => fetchBooksByCategory('klasik'));
+// document.getElementById('Polisiye').addEventListener('click', () => fetchBooksByCategory('polisiye'));
 
-// Kategoriye tıkladığınızda veriyi çekme işlemini başlatan bir fonksiyon
-function fetchBooksByCategory(category) {
-    fetch(`http://127.0.0.1:8000/get_books/${category}`)
-        .then(response => response.json())
-        .then(data => {
-            const veriAlani = document.getElementById('veri-alani');
-            veriAlani.innerHTML = '';
+// // Kategoriye tıkladığınızda veriyi çekme işlemini başlatan bir fonksiyon
+// function fetchBooksByCategory(category) {
+//     fetch(`http://127.0.0.1:8000/get_books/${category}`)
+//         .then(response => response.json())
+//         .then(data => {
+//             const veriAlani = document.getElementById('veri-alani');
+//             veriAlani.innerHTML = '';
 
-            data.forEach(kitap => {
-                const kitapAdi = kitap.kitap_ad;
-                const kitapKategori = kitap.kitap_kategori;
-                const kitapfiyat = kitap.kitap_ücret;
-                const kitapresim = kitap.kitap_resim;
+//             data.forEach(kitap => {
+//                 const kitapAdi = kitap.kitap_ad;
+//                 const kitapKategori = kitap.kitap_kategori;
+//                 const kitapfiyat = kitap.kitap_ücret;
+//                 const kitapresim = kitap.kitap_resim;
 
-                const kitapBilgisi = document.createElement('div');
-                kitapBilgisi.classList.add('kitap-kutusu');
+//                 const kitapBilgisi = document.createElement('div');
+//                 kitapBilgisi.classList.add('kitap-kutusu');
 
-                kitapBilgisi.innerHTML = `
-                    <p>Kitap Adı: ${kitapAdi}</p>
-                    <p>Kategori: ${kitapKategori}</p>
-                    <p>Kitap Fiyatı : ${kitapfiyat} TL</p>
-                    <img src="${kitapresim}" alt="Kitap Resmi">
-                `;
+//                 kitapBilgisi.innerHTML = `
+//                     <p>Kitap Adı: ${kitapAdi}</p>
+//                     <p>Kategori: ${kitapKategori}</p>
+//                     <p>Kitap Fiyatı : ${kitapfiyat} TL</p>
+//                     <img src="${kitapresim}" alt="Kitap Resmi">
+//                 `;
 
-                veriAlani.appendChild(kitapBilgisi);
-            });
-        })
-        .catch(error => {
-            console.error('Hata:', error);
-        });
-}
+//                 veriAlani.appendChild(kitapBilgisi);
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Hata:', error);
+//         });
+// }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const temizleButton = document.getElementById('Temizle');
+// document.addEventListener('DOMContentLoaded', function () {
+//     const temizleButton = document.getElementById('Temizle');
     
-    // Sayfa yüklendiğinde ve "Temizle" butonuna tıkladığınızda API'yi çağıran işlev
-    temizleButton.addEventListener('click', function () {
-        fetch('http://127.0.0.1:8000/get_books/')
-            .then(response => response.json())
-            .then(data => {
-                // Verileri ekranda göstermek için bir konteyner oluşturun
-                const veriAlani = document.getElementById('veri-alani');
-                veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+//     // Sayfa yüklendiğinde ve "Temizle" butonuna tıkladığınızda API'yi çağıran işlev
+//     temizleButton.addEventListener('click', function () {
+//         fetch('http://127.0.0.1:8000/get_books/')
+//             .then(response => response.json())
+//             .then(data => {
+//                 // Verileri ekranda göstermek için bir konteyner oluşturun
+//                 const veriAlani = document.getElementById('veri-alani');
+//                 veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
 
-                // Verileri kutular içinde ekrana ekleyin
-                data.forEach(kitap => {
-                    const kitapAdi = kitap.kitap_ad;
-                    const kitapKategori = kitap.kitap_kategori;
-                    const kitapFiyat = kitap.kitap_ücret;
-                    const kitapResim = kitap.kitap_resim;
+//                 // Verileri kutular içinde ekrana ekleyin
+//                 data.forEach(kitap => {
+//                     const kitapAdi = kitap.kitap_ad;
+//                     const kitapKategori = kitap.kitap_kategori;
+//                     const kitapFiyat = kitap.kitap_ücret;
+//                     const kitapResim = kitap.kitap_resim;
 
-                    // Yeni bir kutu oluşturun
-                    const kitapBilgisi = document.createElement('div');
-                    kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+//                     // Yeni bir kutu oluşturun
+//                     const kitapBilgisi = document.createElement('div');
+//                     kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
 
-                    // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
-                    kitapBilgisi.innerHTML = `
-                        <p>Kitap Adı: ${kitapAdi}</p>
-                        <p>Kategori: ${kitapKategori}</p>
-                        <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
-                        <img src="${kitapResim}" alt="Kitap Resmi">
-                    `;
+//                     // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
+//                     kitapBilgisi.innerHTML = `
+//                         <p>Kitap Adı: ${kitapAdi}</p>
+//                         <p>Kategori: ${kitapKategori}</p>
+//                         <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
+//                         <img src="${kitapResim}" alt="Kitap Resmi">
+//                     `;
 
-                    // Kitap bilgisini HTML sayfasına ekleyin
-                    veriAlani.appendChild(kitapBilgisi);
-                });
-            })
-            .catch(error => {
-                console.error('Hata:', error);
-            });
-    });
-});
+//                     // Kitap bilgisini HTML sayfasına ekleyin
+//                     veriAlani.appendChild(kitapBilgisi);
+//                 });
+//             })
+//             .catch(error => {
+//                 console.error('Hata:', error);
+//             });
+//     });
+// });
 
 
-// tüm verileri ekrana yazdrıma
-document.addEventListener('DOMContentLoaded', function () {
-    // Sayfa yüklendiğinde veriyi çekme işlemini başlatıyorum.
-    fetch('http://127.0.0.1:8000/get_books/') // API URL'sini buraya ekleyin
-        .then(response => response.json())
-        .then(data => {
-            // Verileri ekranda göstermek için bir konteyner oluşturun
-            const veriAlani = document.getElementById('veri-alani');
-            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+// // tüm verileri ekrana yazdrıma
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Sayfa yüklendiğinde veriyi çekme işlemini başlatıyorum.
+//     fetch('http://127.0.0.1:8000/get_books/') // API URL'sini buraya ekleyin
+//         .then(response => response.json())
+//         .then(data => {
+//             // Verileri ekranda göstermek için bir konteyner oluşturun
+//             const veriAlani = document.getElementById('veri-alani');
+//             veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
 
-            // Verileri kutular içinde ekrana ekleyin
-            data.forEach(kitap => {
-                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
-                const kitapKategori = kitap.kitap_kategori;
-                const kitapfiyat = kitap.kitap_ücret;
-                const kitapresim = kitap.kitap_resim;
+//             // Verileri kutular içinde ekrana ekleyin
+//             data.forEach(kitap => {
+//                 const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+//                 const kitapKategori = kitap.kitap_kategori;
+//                 const kitapfiyat = kitap.kitap_ücret;
+//                 const kitapresim = kitap.kitap_resim;
 
-                // Yeni bir kutu oluşturun
-                const kitapBilgisi = document.createElement('div');
-                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+//                 // Yeni bir kutu oluşturun
+//                 const kitapBilgisi = document.createElement('div');
+//                 kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
                 
-                // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
-                kitapBilgisi.innerHTML = `
-                    <p>Kitap Adı: ${kitapAdi}</p>
-                    <p>Kategori: ${kitapKategori}</p>
-                    <p>Kitap Fiyatı: ${kitapfiyat} TL</p>
-                    <img src="${kitapresim}" alt="Kitap Resmi">
-                `;
+//                 // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
+//                 kitapBilgisi.innerHTML = `
+//                     <p>Kitap Adı: ${kitapAdi}</p>
+//                     <p>Kategori: ${kitapKategori}</p>
+//                     <p>Kitap Fiyatı: ${kitapfiyat} TL</p>
+//                     <img src="${kitapresim}" alt="Kitap Resmi">
+//                 `;
                 
-                // Kitap bilgisini HTML sayfasına ekleyin
-                document.body.appendChild(kitapBilgisi);
+//                 // Kitap bilgisini HTML sayfasına ekleyin
+//                 document.body.appendChild(kitapBilgisi);
                 
             
 
-                veriAlani.appendChild(kitapBilgisi);
-            });
-        })
-        .catch(error => {
-            console.error('Hata:', error);
-        });
-});
+//                 veriAlani.appendChild(kitapBilgisi);
+//             });
+//         })
+//         .catch(error => {
+//             console.error('Hata:', error);
+//         });
+// });
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Arama çubuğunu ve arama simgesini bulun
+//     const aramaCubugu = document.getElementById('arama-cubugu');
+//     const aramaSimgesi = document.getElementById('arama-simgesi');
+
+//     // Arama simgesine tıklanınca işlem yapın
+//     aramaSimgesi.addEventListener('click', function () {
+//         // Arama çubuğundaki değeri alın
+//         const aramaKelimesi = aramaCubugu.value.toLowerCase(); // Küçük harfle işlem yapmak için
+
+//         // Sayfa yüklendiğinde veriyi çekme işlemini başlatıyorum.
+//         fetch(`http://127.0.0.1:8000/get_books/${aramaKelimesi}`) // API URL'sini buraya ekleyin
+//             .then(response => response.json())
+//             .then(data => {
+//                 // Verileri ekranda göstermek için bir konteyner oluşturun
+//                 const veriAlani = document.getElementById('veri-alani');
+//                 veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+//                 // Verileri kutular içinde ekrana ekleyin
+//                 data.forEach(kitap => {
+//                     const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+//                     const kitapKategori = kitap.kitap_kategori;
+//                     const kitapFiyat = kitap.kitap_fiyat;
+//                     const kitapresim = kitap.kitap_resim;
+
+//                     // Yeni bir kutu oluşturun
+//                     const kitapBilgisi = document.createElement('div');
+//                     kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+//                     // Kutunun içeriğini ayarlayın
+//                     kitapBilgisi.innerHTML = `
+//                         <p>Kitap Adı: ${kitapAdi}</p>
+//                         <p>Kategori: ${kitapKategori}</p>
+//                         <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
+//                         <img src="${kitapresim}" alt="Kitap Resmi">
+//                     `;
+
+//                     veriAlani.appendChild(kitapBilgisi);
+//                 });
+//             })
+//             .catch(error => {
+//                 console.error('Hata:', error);
+//             });
+//     });
+// });
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Arama çubuğunu ve arama simgesini bulun
-    const aramaCubugu = document.getElementById('arama-cubugu');
-    const aramaSimgesi = document.getElementById('arama-simgesi');
+    // Formu bulun
+    const form = document.getElementById('myForm');
 
-    // Arama simgesine tıklanınca işlem yapın
-    aramaSimgesi.addEventListener('click', function () {
-        // Arama çubuğundaki değeri alın
-        const aramaKelimesi = aramaCubugu.value.toLowerCase(); // Küçük harfle işlem yapmak için
+    // Form gönderildiğinde işlem yapın
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Sayfanın yeniden yüklenmesini önler
 
-        // Sayfa yüklendiğinde veriyi çekme işlemini başlatıyorum.
-        fetch(`http://127.0.0.1:8000/get_books/${aramaKelimesi}`) // API URL'sini buraya ekleyin
-            .then(response => response.json())
-            .then(data => {
-                // Verileri ekranda göstermek için bir konteyner oluşturun
-                const veriAlani = document.getElementById('veri-alani');
-                veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+        // Formdaki verileri alın
+        const name = document.getElementById('name').value;
+        const surname = document.getElementById('surname').value;
+        const phone = document.getElementById('phone').value;
+        const budget = parseFloat(document.getElementById('budget').value);
 
-                // Verileri kutular içinde ekrana ekleyin
-                data.forEach(kitap => {
-                    const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
-                    const kitapKategori = kitap.kitap_kategori;
-                    const kitapFiyat = kitap.kitap_fiyat;
-                    const kitapresim = kitap.kitap_resim;
+        // Verileri bir nesne olarak oluşturun
+        const data = {
+            name: name,
+            surname: surname,
+            phone: phone,
+            budget: budget
+        };
 
-                    // Yeni bir kutu oluşturun
-                    const kitapBilgisi = document.createElement('div');
-                    kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
-
-                    // Kutunun içeriğini ayarlayın
-                    kitapBilgisi.innerHTML = `
-                        <p>Kitap Adı: ${kitapAdi}</p>
-                        <p>Kategori: ${kitapKategori}</p>
-                        <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
-                        <img src="${kitapresim}" alt="Kitap Resmi">
-                    `;
-
-                    veriAlani.appendChild(kitapBilgisi);
-                });
-            })
-            .catch(error => {
-                console.error('Hata:', error);
-            });
+        // POST isteği yapın
+        fetch('http://127.0.0.1:8000/post_add_users/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.message) {
+                alert(result.message);
+                // Başka bir işlem yapmak isterseniz burada yapabilirsiniz
+            } else if (result.error) {
+                alert(result.error);
+            }
+        })
+        .catch(error => {
+            console.error('Hata:', error);
+        });
     });
 });
