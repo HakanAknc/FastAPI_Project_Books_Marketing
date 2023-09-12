@@ -135,6 +135,19 @@ async def books_category_get(books_category: str):
     return sorted_kitaplar.to_dict(orient="records")
 
 
+# TODO yeni api
+@app.get("/get_name_book/{name_book}")  
+async def book_name_get(name_book: str):
+    kitaplar_df = pd.read_csv(csv_file) # TODO
+    kitap_in_fee = kitaplar_df[kitaplar_df["kitap_ad"] == name_book]
+    
+    if kitap_in_fee.empty:   # Eğer belirtilen kategoride hiç kitap yoksa hata döndürelim
+        return {"error": "Belirtilen kategoride kitap bulunamadı."}
+    
+    name_kitaplar = kitap_in_fee.sort_values(by="kitap_ad")  # Kitapları sıralayalım ve liste olarak döndürelim
+    return name_kitaplar.to_dict(orient="records")
+
+
 @app.post("/post_add_books/")    #  Verilen verileri (kitap_ad, kitap_kategori, kitap_ücret ve kitap_stok) kullanarak yeni bir kitap ekler.
 async def add_books_post(book_name: str, book_category: str, book_fee: int, book_stock: int,book_image:str):
     kitaplar_df = pd.read_csv(csv_file)
