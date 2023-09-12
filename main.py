@@ -1,4 +1,4 @@
-from fastapi import (FastAPI, Query)   # FastAPI kütüphanesini import etim    # TODO Ana proje
+from fastapi import (FastAPI, Query)   # FastAPI kütüphanesini import etim    # TODO Deneme Projesi Rahat Ol
 import pandas as pd           # FastAPI kütüphanesini import etim      -- uvicorn main:app --reload
 import func_ted as fnc
 import uuid
