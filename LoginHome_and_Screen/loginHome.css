@@ -1,0 +1,187 @@
+/* Temel stiller */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header stilleri */
+header {
+    background-color: #c82f1e;
+    color: white;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    width: 80px;
+    /* İstenilen genişliği burada ayarlayabilirsiniz */
+    height: auto;
+    /* Genişlik oranına göre otomatik olarak yüksekliği hesaplar */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 40px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Kutu stilleri */
+.box {
+    background-color: #c65f2b;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 4px;
+    margin-left: 4;
+    border-radius: 10px;
+}
+
+.search-bar input {
+    border: none;
+    text-align: center;
+    padding: 10px;
+    width: 350px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar i {
+    color: #c82f1e;
+    padding: 5px;
+    background-color: #e5e5e5;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+
+}
+
+/* Kategoriler */
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.category {
+    background-color: #c82f1e;
+    color: white;
+    padding: 10px;
+    padding-left: 95px;
+    padding-right: 95px;
+    margin: 0 7px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Öne Çıkan Resimler */
+.featured-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.image {
+    background-color: #e5e5e5;
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+img {
+    width: 150px;      /* kitap boyut ayarları*/
+    height: 200px; 
+    padding:10px ;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kitap-kutusu {
+    background-color: #fff;
+    border: 1px solid #c42121;
+    padding: 10px;
+    margin: 20px;
+    margin-left: 70px;
+    border-radius: 5px;
+    width: 250px;
+    /* İhtiyaca göre genişliği ayarlayın */
+    display: inline-block;
+    /* Kutuları yan yana göstermek için */
+}
+
+
+/* Slider kısmı */
+.slider-container {
+    width: 100%;
+    /* Slider genişliği */
+    height: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slider stilleri */
+.banner {
+    width: 100%;
+    height: 80vh;
+    /* Ekran yüksekliği kadar olacak */
+    overflow: hidden;
+}
+
+.slider {
+    padding-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 90%;
+    animation: slide 10s infinite;
+    /* Slider otomatik geçiş için animasyon ekleyin */
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Resimlerin doldurma biçimi */
+}
+
+@keyframes slide {
+
+    0%,
+    100% {
+        transform: translateX(0%);
+    }
+
+    25% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(-100%);
+    }
+
+    75% {
+        transform: translateX(-100%);
+    }
+}
