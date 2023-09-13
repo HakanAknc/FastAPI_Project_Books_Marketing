@@ -1,0 +1,53 @@
+body {
+    margin: 0;             /* ? Sayfa kenar boşluklarını sıfırlar. */
+    padding: 0;           /* ? Sayfa kenar boşluklarını sıfırlar. */
+    font-family: Arial, sans-serif;  /* ? yazı tipini  */
+    display: flex;  /* ? sayfanın içeriğini yatay ve dikey olarak merkeze hizalar.  */
+    justify-content: center; /* ? " */
+    align-items: center;  /* ? " */
+    min-height: 100vh;  /* ? Sayfanın tam yüksekliğini kaplamak için */
+    background-image: url("resimler/arkaPlan.png");  /* ? Arka plan resmini belirler. */
+    background-size: cover;  /* ? Arka plan resmini sayfanın boyutuna sığdırırken orantısını korur. */
+    background-position: center;  /* ? Arka plan resmini sayfanın ortasına hizalar. */
+    background-repeat: no-repeat;  /* ? Arka plan resminin yinelenmemesini sağlar.*/
+  }
+  
+  .login-box {
+    backdrop-filter: blur(80px); /* ! Arka planı blurlu yapar */
+    padding: 50px;   /* ! Giriş kutusuna iç boşluk ekler. */
+    border-radius: 40px;  /* ! Giriş kutusuna kenar yuvarlatması uygular. */
+    text-align: center;   /* ! Kutu içeriğini merkeze hizalar. */
+  }
+  
+  .login-box h1, .login-box h2 {
+    margin-bottom: 20px;   /* * Başlıkların altındaki boşluğu ayarlar. */
+    color: #fff;
+  }
+  
+  .login-box hr {
+    margin: 15px 0;   /* ? Yatay çizginin yukarı ve aşağı boşluğunu ayarlar. */
+  }
+  
+  .login-box input {
+    display: block;   /* * Giriş kutusu öğelerini blok şeklinde görüntüler. */
+    width: 100%;    /* * Giriş kutusu genişliğini kutunun içine sığdırır. */
+    margin-bottom: 10px;  /* *  Giriş kutusu öğeleri arasında alt boşluk ekler. */
+    padding: 10px;  /* *  Giriş kutusu içeriğinin etrafına boşluk ekler. */
+    border: 1px solid #100f0f;  /* *   Giriş kutusu kenarlık ekler. */
+    border-radius: 20px;   /* *  Giriş kutusu köşelerini yuvarlatır. */
+  }
+  
+  .login-box button {
+    background-color: #d80808;   /* ! Düğme arka plan rengini belirler. */
+    color: #fff;  /* ! Düğme metin rengini beyaza ayarlar. */
+    border: px solid #100f0f;  /* ! Düğme kenarlığını kaldırır. */
+    font-weight: bold;  /* ! yazıyı kalın yapar*/
+    border-radius: 15px;  /* ! Düğme köşelerini yuvarlatır. */
+    padding: 10px 30px; /* !  Düğme içeriğine boşluk ekler. */
+    cursor: pointer;   /* ! Fareyi düğme üzerine getirildiğinde imleç türünü değiştirir. */
+    transition: background-color 0.3s ease;   /* ! Düğme üzerine gelindiğinde geçiş efekti uygular. */
+  }
+  
+  .login-box button:hover {
+    background-color: #2980b9;   /* * Düğme üzerine gelindiğinde arka plan rengini değiştirir. */
+  }
