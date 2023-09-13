@@ -1,101 +1,176 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Kategori bağlantılarını al
-//     const kategoriler = document.querySelectorAll(".category");
+// const adres = "http://127.0.0.1:8000/get_users/";
 
-//     // Her kategori bağlantısını dinle
-//     kategoriler.forEach(kategori => {
-//         kategori.addEventListener("click", function(event) {
-//             event.preventDefault(); // Bağlantıyı tıklamayı engelle
-
-//             // Tıklanan kategoriyi al
-//             const secilenKategori = kategori.id;
-
-//             // FastAPI'den veri çekmek için Fetch API kullan
-//             fetch(`/get_books/${secilenKategori}`)
-//                 .then(response => response.json())
-//                 .then(veri => {
-//                     // Sonuçları ekranda göster
-//                     const sonuclarDiv = document.getElementById("kategori-sonuclari");
-//                     sonuclarDiv.innerHTML = "";
-
-//                     if (veri.error) {
-//                         sonuclarDiv.innerHTML = `<p>${veri.error}</p>`;
-//                     } else {
-//                         veri.forEach(kitap => {
-//                             sonuclarDiv.innerHTML += `<p>${kitap.kitap_ad}</p>`;
-//                         });
-//                     }
-//                 })
-//                 .catch(error => {
-//                     console.error("Veri çekme hatası:", error);
-//                 });
-//         });
-//     });
-// });
+// fetch(adres)                                 // ? ---Bu satır, belirtilen URL'ye bir HTTP isteği yapmak için fetch fonksiyonunu kullanır. adres değişkeni, isteğin gideceği adresi belirtir.
+//     .then((response) => response.json())    // ? ---Bu satır, fetch işleminin sonucu olan response nesnesini alır ve bu yanıtı JSON formatında çözümlemek için bir .then() zinciri başlatır.
+//     .then((data) => console.log(data))     // ? ---Bu satır, JSON çözümlenmiş veriyi alır ve bu veriyi konsola yazdırmak için bir .then() zinciri daha ekler. data burada çözümlenmiş JSON veriyi temsil eder.
+//     .catch((err) => console.log(err))     // ? ---Bu satır, önceki .then() zincirlerinde herhangi bir hata oluşursa bu hatayı yakalamak ve konsola yazdırmak için bir .catch() bloğu ekler. err hatayı temsil eder.
 
 
-// JavaScript dosyanızda
+
+// YEDEK
 document.getElementById('Roman').addEventListener('click', function() {
-    // Kategoriye tıkladığınızda burada veriyi çekme işlemini başlatın.
+    // Kategoriye tıkladığınızda veriyi çekme işlemini başlatın.
     fetch('http://127.0.0.1:8000/get_books/roman')  // FastAPI URL'sini buraya ekleyin
         .then(response => response.json())
         .then(data => {
-            // Verileri kullanmak için burada işlem yapabilirsiniz
-            console.log(data);
+            // Verileri ekranda göstermek için bir konteyner oluşturun
+            const veriAlani = document.getElementById('veri-alani');
+            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+            // Verileri kutular içinde ekrana ekleyin
+            data.forEach(kitap => {
+                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+                const kitapKategori = kitap.kitap_kategori;
+                
+                // Yeni bir kutu oluşturun
+                const kitapBilgisi = document.createElement('div');
+                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                // Kutunun içeriğini ayarlayın
+                kitapBilgisi.innerHTML = `
+                    <p>Kitap Adı: ${kitapAdi}</p>
+                    <p>Kategori: ${kitapKategori}</p>
+                `;
+                
+                veriAlani.appendChild(kitapBilgisi);
+            });
         })
         .catch(error => {
             console.error('Hata:', error);
         });
 });
 
+
 document.getElementById('Masal').addEventListener('click', function() {
-    // Kategoriye tıkladığınızda burada veriyi çekme işlemini başlatın.
+    // Kategoriye tıkladığınızda veriyi çekme işlemini başlatın.
     fetch('http://127.0.0.1:8000/get_books/masal')  // FastAPI URL'sini buraya ekleyin
         .then(response => response.json())
         .then(data => {
-            // Verileri kullanmak için burada işlem yapabilirsiniz
-            console.log(data);
+            // Verileri ekranda göstermek için bir konteyner oluşturun
+            const veriAlani = document.getElementById('veri-alani');
+            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+            // Verileri kutular içinde ekrana ekleyin
+            data.forEach(kitap => {
+                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+                const kitapKategori = kitap.kitap_kategori;
+                
+                // Yeni bir kutu oluşturun
+                const kitapBilgisi = document.createElement('div');
+                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                // Kutunun içeriğini ayarlayın
+                kitapBilgisi.innerHTML = `
+                    <p>Kitap Adı: ${kitapAdi}</p>
+                    <p>Kategori: ${kitapKategori}</p>
+                `;
+                
+                veriAlani.appendChild(kitapBilgisi);
+            });
         })
         .catch(error => {
             console.error('Hata:', error);
         });
 });
 
+
 document.getElementById('Öykü').addEventListener('click', function() {
-    // Kategoriye tıkladığınızda burada veriyi çekme işlemini başlatın.
+    // Kategoriye tıkladığınızda veriyi çekme işlemini başlatın.
     fetch('http://127.0.0.1:8000/get_books/öykü')  // FastAPI URL'sini buraya ekleyin
         .then(response => response.json())
         .then(data => {
-            // Verileri kullanmak için burada işlem yapabilirsiniz
-            console.log(data);
+            // Verileri ekranda göstermek için bir konteyner oluşturun
+            const veriAlani = document.getElementById('veri-alani');
+            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+            // Verileri kutular içinde ekrana ekleyin
+            data.forEach(kitap => {
+                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+                const kitapKategori = kitap.kitap_kategori;
+                
+                // Yeni bir kutu oluşturun
+                const kitapBilgisi = document.createElement('div');
+                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                // Kutunun içeriğini ayarlayın
+                kitapBilgisi.innerHTML = `
+                    <p>Kitap Adı: ${kitapAdi}</p>
+                    <p>Kategori: ${kitapKategori}</p>
+                `;
+                
+                veriAlani.appendChild(kitapBilgisi);
+            });
         })
         .catch(error => {
             console.error('Hata:', error);
         });
 });
 
+
 document.getElementById('Klasik').addEventListener('click', function() {
-    // Kategoriye tıkladığınızda burada veriyi çekme işlemini başlatın.
+    // Kategoriye tıkladığınızda veriyi çekme işlemini başlatın.
     fetch('http://127.0.0.1:8000/get_books/klasik')  // FastAPI URL'sini buraya ekleyin
         .then(response => response.json())
         .then(data => {
-            // Verileri kullanmak için burada işlem yapabilirsiniz
-            console.log(data);
+            // Verileri ekranda göstermek için bir konteyner oluşturun
+            const veriAlani = document.getElementById('veri-alani');
+            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+            // Verileri kutular içinde ekrana ekleyin
+            data.forEach(kitap => {
+                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+                const kitapKategori = kitap.kitap_kategori;
+                
+                // Yeni bir kutu oluşturun
+                const kitapBilgisi = document.createElement('div');
+                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                // Kutunun içeriğini ayarlayın
+                kitapBilgisi.innerHTML = `
+                    <p>Kitap Adı: ${kitapAdi}</p>
+                    <p>Kategori: ${kitapKategori}</p>
+                `;
+                
+                veriAlani.appendChild(kitapBilgisi);
+            });
         })
         .catch(error => {
             console.error('Hata:', error);
         });
 });
 
+
+
 document.getElementById('Polisiye').addEventListener('click', function() {
-    // Kategoriye tıkladığınızda burada veriyi çekme işlemini başlatın.
+    // Kategoriye tıkladığınızda veriyi çekme işlemini başlatın.
     fetch('http://127.0.0.1:8000/get_books/polisiye')  // FastAPI URL'sini buraya ekleyin
         .then(response => response.json())
         .then(data => {
-            // Verileri kullanmak için burada işlem yapabilirsiniz
-            console.log(data);
+            // Verileri ekranda göstermek için bir konteyner oluşturun
+            const veriAlani = document.getElementById('veri-alani');
+            veriAlani.innerHTML = ''; // Önceki içeriği temizleyin
+
+            // Verileri kutular içinde ekrana ekleyin
+            data.forEach(kitap => {
+                const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
+                const kitapKategori = kitap.kitap_kategori;
+                
+                // Yeni bir kutu oluşturun
+                const kitapBilgisi = document.createElement('div');
+                kitapBilgisi.classList.add('kitap-kutusu'); // Stillemek için bir sınıf ekleyin
+
+                // Kutunun içeriğini ayarlayın
+                kitapBilgisi.innerHTML = `
+                    <p>Kitap Adı: ${kitapAdi}</p>
+                    <p>Kategori: ${kitapKategori}</p>
+                `;
+                
+                veriAlani.appendChild(kitapBilgisi);
+            });
         })
         .catch(error => {
             console.error('Hata:', error);
         });
 });
+
+
