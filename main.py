@@ -135,15 +135,33 @@ async def books_category_get(books_category: str):
     return sorted_kitaplar.to_dict(orient="records")
 
 
+# TODO yeni api
+@app.get("/get_name_book/{name_book}")  
+async def book_name_get(name_book: str):
+    kitaplar_df = pd.read_csv(csv_file) # TODO
+    kitap_in_fee = kitaplar_df[kitaplar_df["kitap_ad"] == name_book]
+    
+    if kitap_in_fee.empty:   # Eğer belirtilen kategoride hiç kitap yoksa hata döndürelim
+        return {"error": "Belirtilen kategoride kitap bulunamadı."}
+    
+    name_kitaplar = kitap_in_fee.sort_values(by="kitap_ad")  # Kitapları sıralayalım ve liste olarak döndürelim
+    return name_kitaplar.to_dict(orient="records")
+
+
 @app.post("/post_add_books/")    #  Verilen verileri (kitap_ad, kitap_kategori, kitap_ücret ve kitap_stok) kullanarak yeni bir kitap ekler.
-async def add_books_post(book_name: str, book_category: str, book_fee: int, book_stock: int):
+async def add_books_post(book_name: str, book_category: str, book_fee: int, book_stock: int,book_image:str):
     kitaplar_df = pd.read_csv(csv_file)
     
     # Aynı "kitap_ad"a sahip kitabın zaten var olup olmadığını kontrol ediyorum
     if kitaplar_df[kitaplar_df["kitap_ad"] == book_name].shape[0] > 0:
         return {"error": "Bu kitap zaten kayıtlıdır."}
     
-    veri = pd.DataFrame({"kitap_id": [kitap_id_counter], "kitap_ad": [book_name], "kitap_kategori": [book_category], "kitap_ücret": [book_fee], "kitap_stok": [book_stock]})
+    veri = pd.DataFrame({"kitap_id": [kitap_id_counter],
+                          "kitap_ad": [book_name],
+                            "kitap_kategori": [book_category],
+                              "kitap_ücret": [book_fee],
+                                "kitap_stok": [book_stock],
+                                "kitap_resim":[book_image]})
 
     if kitaplar_df.empty:
         updated_veri_csv = veri
