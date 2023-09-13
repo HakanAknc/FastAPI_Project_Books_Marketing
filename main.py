@@ -64,12 +64,6 @@ async def users_get():
     return kisiler_df.to_dict(orient="records")
 
 
-# # 1. Tablo = Kişiler
-# @app.get("/get_users/")    # "Kişiler" tablosundaki tüm kişilerin bir listesini alır.    
-# async def users_get():
-#     return fnc.get_users()
-
-
 @app.get("/get_users/{user_id}")       #"Kişiler" tablosundaki belirli bir kişiyi ID'sine göre alır.
 async def users_id_get(user_ID: int):
     kisiler_df = pd.read_csv(csv_file_path) # TODO
@@ -132,6 +126,19 @@ async def books_category_get(books_category: str):
     
     sorted_kitaplar = kitaplar_in_kategori.sort_values(by="kitap_ad")  # Kitapları sıralayalım ve liste olarak döndürelim
     return sorted_kitaplar.to_dict(orient="records")
+
+
+# TODO yeni api
+@app.get("/get_name_book/{name_book}")  
+async def book_name_get(name_book: str):
+    kitaplar_df = pd.read_csv(csv_file) # TODO
+    kitap_in_fee = kitaplar_df[kitaplar_df["kitap_ad"] == name_book]
+    
+    if kitap_in_fee.empty:   # Eğer belirtilen kategoride hiç kitap yoksa hata döndürelim
+        return {"error": "Belirtilen kategoride kitap bulunamadı."}
+    
+    name_kitaplar = kitap_in_fee.sort_values(by="kitap_ad")  # Kitapları sıralayalım ve liste olarak döndürelim
+    return name_kitaplar.to_dict(orient="records")
 
 
 @app.post("/post_add_books/")    #  Verilen verileri (kitap_ad, kitap_kategori, kitap_ücret ve kitap_stok) kullanarak yeni bir kitap ekler.
