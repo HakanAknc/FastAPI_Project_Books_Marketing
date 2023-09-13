@@ -28,3 +28,14 @@ function addUser() {
             alert("Üye kaydı sırasında bir hata oluştu.");
         });
 }
+
+
+
+// Üye ol düğmesini id ile seçin
+const uyeOlButton = document.getElementById("uyeOlButton");
+
+// Düğmeye tıklama olay dinleyicisi ekleyin
+uyeOlButton.addEventListener("click", function () {
+    // Kullanıcıyı istediğiniz sayfaya (Ana Sayfa) yönlendirin
+    window.location.href = "LoginHomepage/loginHome.html"; // Gerçek Ana Sayfa URL'si ile değiştirin
+});

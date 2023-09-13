@@ -1,4 +1,8 @@
-function addUser() {
+// Üye ol düğmesini id ile seçin
+const uyeOlButton = document.getElementById("uyeOlButton");
+
+// Düğmeye tıklama olay dinleyicisi ekleyin
+uyeOlButton.addEventListener("click", function () {
     const name = document.getElementById("name").value;
     const surname = document.getElementById("surname").value;
     const phone = document.getElementById("phone").value;
@@ -19,6 +23,8 @@ function addUser() {
             // İşlem sonucunu kontrol et
             if (data.message === "Veriler CSV dosyanıza başarıyla kaydedildi.") {
                 alert("Üye kaydınız başarıyla oluşturuldu.");
+                // Kullanıcıyı istediğiniz sayfaya (Ana Sayfa) yönlendirin
+                window.location.href = "loginHome.html"; // Ana Sayfa URL'si 
             } else {
                 alert("Üye kaydı sırasında bir hata oluştu.");
             }
@@ -27,15 +33,4 @@ function addUser() {
             console.error('Hata:', error);
             alert("Üye kaydı sırasında bir hata oluştu.");
         });
-}
-
-
-
-// Üye ol düğmesini id ile seçin
-const uyeOlButton = document.getElementById("uyeOlButton");
-
-// Düğmeye tıklama olay dinleyicisi ekleyin
-uyeOlButton.addEventListener("click", function () {
-    // Kullanıcıyı istediğiniz sayfaya (Ana Sayfa) yönlendirin
-    window.location.href = "loginHome.html"; // Gerçek Ana Sayfa URL'si ile değiştirin
 });

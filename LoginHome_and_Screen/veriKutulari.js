@@ -14,19 +14,19 @@ function fetchBooksByCategory(category) {
             veriAlani.innerHTML = '';
 
             data.forEach(kitap => {
+                const kitapresim = kitap.kitap_resim;
                 const kitapAdi = kitap.kitap_ad;
                 const kitapKategori = kitap.kitap_kategori;
                 const kitapfiyat = kitap.kitap_ücret;
-                const kitapresim = kitap.kitap_resim;
 
                 const kitapBilgisi = document.createElement('div');
                 kitapBilgisi.classList.add('kitap-kutusu');
 
                 kitapBilgisi.innerHTML = `
+                    <img src="${kitapresim}" alt="Kitap Resmi">
                     <p>Kitap Adı: ${kitapAdi}</p>
                     <p>Kategori: ${kitapKategori}</p>
                     <p>Kitap Fiyatı : ${kitapfiyat} TL</p>
-                    <img src="${kitapresim}" alt="Kitap Resmi">
                 `;
 
                 veriAlani.appendChild(kitapBilgisi);
@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Verileri kutular içinde ekrana ekleyin
                 data.forEach(kitap => {
+                    const kitapResim = kitap.kitap_resim;
                     const kitapAdi = kitap.kitap_ad;
                     const kitapKategori = kitap.kitap_kategori;
                     const kitapFiyat = kitap.kitap_ücret;
-                    const kitapResim = kitap.kitap_resim;
 
                     // Yeni bir kutu oluşturun
                     const kitapBilgisi = document.createElement('div');
@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
                     kitapBilgisi.innerHTML = `
+                        <img src="${kitapResim}" alt="Kitap Resmi">
                         <p>Kitap Adı: ${kitapAdi}</p>
                         <p>Kategori: ${kitapKategori}</p>
                         <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
-                        <img src="${kitapResim}" alt="Kitap Resmi">
                     `;
 
                     // Kitap bilgisini HTML sayfasına ekleyin
@@ -92,10 +92,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Verileri kutular içinde ekrana ekleyin
             data.forEach(kitap => {
+                const kitapresim = kitap.kitap_resim;
                 const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
                 const kitapKategori = kitap.kitap_kategori;
                 const kitapfiyat = kitap.kitap_ücret;
-                const kitapresim = kitap.kitap_resim;
 
                 // Yeni bir kutu oluşturun
                 const kitapBilgisi = document.createElement('div');
@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Kutunun içeriğini ayarlayın, burada resim URL'sini src özelliğine ekleyin
                 kitapBilgisi.innerHTML = `
+                    <img src="${kitapresim}" alt="Kitap Resmi">
                     <p>Kitap Adı: ${kitapAdi}</p>
                     <p>Kategori: ${kitapKategori}</p>
                     <p>Kitap Fiyatı: ${kitapfiyat} TL</p>
-                    <img src="${kitapresim}" alt="Kitap Resmi">
                 `;
                 
                 // Kitap bilgisini HTML sayfasına ekleyin
@@ -144,10 +144,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Verileri kutular içinde ekrana ekleyin
                 data.forEach(kitap => {
+                    const kitapresim = kitap.kitap_resim;
                     const kitapAdi = kitap.kitap_ad; // Verilerinize göre uygun alanları kullanın
                     const kitapKategori = kitap.kitap_kategori;
-                    const kitapFiyat = kitap.kitap_fiyat;
-                    const kitapresim = kitap.kitap_resim;
+                    const kitapFiyat = kitap.kitap_ücret;
 
                     // Yeni bir kutu oluşturun
                     const kitapBilgisi = document.createElement('div');
@@ -155,10 +155,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Kutunun içeriğini ayarlayın
                     kitapBilgisi.innerHTML = `
+                        <img src="${kitapresim}" alt="Kitap Resmi">
                         <p>Kitap Adı: ${kitapAdi}</p>
                         <p>Kategori: ${kitapKategori}</p>
                         <p>Kitap Fiyatı: ${kitapFiyat} TL</p>
-                        <img src="${kitapresim}" alt="Kitap Resmi">
                     `;
 
                     veriAlani.appendChild(kitapBilgisi);
