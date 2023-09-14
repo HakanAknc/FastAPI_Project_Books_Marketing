@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e17542;
+    background-color: #f4f4f4;
 }
 
 /* Header stilleri */
@@ -119,6 +119,8 @@ img {
 }
 
 .kitap-kutusu {
+    text-align: center;
+    font-weight:bold;
     background-color: #fff;
     border: 1px solid #c42121;
     padding: 10px;
@@ -165,6 +167,21 @@ img {
     object-fit: cover;
     /* Resimlerin doldurma biçimi */
 }
+
+.satinal-button{
+    cursor: pointer;   /* maouse işareti*/
+    background-color: #ca4b3d;
+    font-size: 25px;
+    padding: 10px 35px;
+    border-radius: 10px;
+}
+
+.satinal-button:hover{
+    background-color:rgb(255, 0, 0);
+    font-size: 25px;
+    padding: 10px 35px;
+    border-radius: 40px;
+    }
 
 @keyframes slide {
 
