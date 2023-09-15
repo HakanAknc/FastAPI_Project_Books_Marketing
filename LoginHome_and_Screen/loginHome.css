@@ -38,6 +38,20 @@ nav {
 .menu li a {
     color: white;
     text-decoration: none;
+    font-size: 17px;
+}
+
+/* Yönetici Girişi butonuna stil verme */
+.menu i {
+    position: relative; /* İçerik eklemek için pozisyonu ayarlayın */
+    display: inline-block;
+    margin-left: 40px; /* İstediğiniz boşluğu ayarlayın */
+}
+
+/* Sepet simgesi için stil verme */
+.fa-basket-shopping {
+    font-size: 27px; /* Simgenin boyutunu ayarlayın */
+    vertical-align: middle; /* Dikey hizalamayı düzenleyin */
 }
 
 /* Kutu stilleri */
